@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 from starlette.responses import RedirectResponse, JSONResponse
 from routers import (
-    auth, media, video, photo, user,
+    auth, media, video, photo, user, message,
     igtv, clip, album, story,
     insights
 )
@@ -20,6 +20,7 @@ app.include_router(clip.router)
 app.include_router(album.router)
 app.include_router(story.router)
 app.include_router(insights.router)
+app.include_router(message.router)
 
 
 @app.get("/", tags=["system"], summary="Redirect to /docs")
